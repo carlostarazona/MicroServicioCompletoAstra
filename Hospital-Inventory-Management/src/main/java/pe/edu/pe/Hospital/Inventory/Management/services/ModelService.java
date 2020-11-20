@@ -9,3 +9,4 @@ public interface ModelService extends CrudService<Model, Integer>{
 
     Optional<Model> findByModelName(String name_model) throws Exception;
 }
+    
