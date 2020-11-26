@@ -1,0 +1,55 @@
+package pe.edu.upc.hospitalservice.services.impls;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import pe.edu.upc.hospitalservice.entities.Brand;
+import pe.edu.upc.hospitalservice.repositories.BrandRepository;
+import pe.edu.upc.hospitalservice.services.BrandService;
+
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class BrandServiceImpl implements BrandService {
+
+
+    @Autowired
+    private BrandRepository brandRepository;
+
+
+    @Override
+    public Brand save(Brand entity) throws Exception {
+        return brandRepository.save(entity);
+    }
+
+    @Override
+    public List<Brand> findAll() throws Exception {
+        return brandRepository.findAll();
+    }
+
+    @Override
+    public Optional<Brand> findById(Integer integer) throws Exception {
+        return brandRepository.findById(integer);
+    }
+
+    @Override
+    public Brand actualizar(Brand Entity) throws Exception {
+        return brandRepository.save(Entity);
+    }
+
+    @Override
+    public ResponseEntity<?> deleteById(Integer integer) throws Exception {
+        brandRepository.deleteById(integer);
+        return null;
+    }
+
+    @Override
+    public Optional<Brand> findByBrandName(String nameBrand) throws Exception {
+        return brandRepository.findByBrandName(nameBrand);
+    }
+
+
+}
