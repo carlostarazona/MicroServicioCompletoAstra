@@ -18,7 +18,7 @@ Feature: Register a Medical Equipment
     When the Manager clicks the register button
     And make a post request to "/models/100/medical_equipments"
     Then the system asks to correct the wrong data
-    And the result received has a status code of 405
+    And the result received has a status code of 404
 
 
 

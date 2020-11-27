@@ -35,6 +35,6 @@ spring:
             - Path=/schedule/**
         - id: managementh-service
           uri: lb://managementh-service
-            predicates:
-              - Path=/hospitals/**
+          predicates:
+            - Path=/hospitals/**
 

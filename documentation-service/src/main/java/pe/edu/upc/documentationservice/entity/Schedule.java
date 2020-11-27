@@ -2,7 +2,8 @@ package pe.edu.upc.documentationservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import pe.edu.upc.documentationservice.model.User;
+import pe.edu.upc.documentationservice.model.Administrator;
+
 
 
 import javax.persistence.*;
@@ -50,7 +51,7 @@ public class Schedule {
     private ManagerRequest managerRequest;
 
     @Transient
-    private User user;
+    private Administrator administrator;
 
     @PrePersist
     public void prePersist() {
