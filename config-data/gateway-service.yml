@@ -13,15 +13,28 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: customer-service
-          uri: lb://customer-service
+        - id: technical-service
+          uri: lb://technical-service
           predicates:
-            - Path=/customers/**
-        - id: product-service
-          uri: lb://product-service
+            - Path=/api/engineers/**
+            - Path=/api/administrators/**
+            - Path=/api//managers/**
+            - Path=/api/plans/**
+        - id: hospital-service
+          uri: lb://hospital-service
           predicates:
-            - Path=/products/**
-        - id: shopping-service
-          uri: lb://shopping-service
+            - Path=/brands/**
+            - Path=/medical_equipments/**
+            - Path=/models/**
+        - id: documentation-service
+          uri: lb://documentation-service
           predicates:
-            - Path=/invoices/**
+            - Path=/engineerreport/**
+            - Path=/finalreport/**
+            - Path=/managerrequests/**
+            - Path=/schedule/**
+        - id: managementh-service
+          uri: lb://managementh-service
+            predicates:
+              - Path=/hospitals/**
+

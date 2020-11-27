@@ -21,7 +21,7 @@ import java.util.Optional;
 
 @Slf4j
 @RestController
-@RequestMapping("")
+@RequestMapping("/medical_equipments")
 public class MedicalEquipmentController {
     @Autowired
     private MedicalEquipmentRepository medicalEquipmentRepository;
@@ -33,7 +33,7 @@ public class MedicalEquipmentController {
 
 
 
-    @GetMapping(path = "/medical_equipments/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<MedicalEquipment> fetchById(@PathVariable("id") Integer id){
         try{
             Optional<MedicalEquipment> optionalMedicalEquipment = medicalEquipmentRepository.findById(id);
@@ -48,7 +48,7 @@ public class MedicalEquipmentController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/medical_equipments")
+    @GetMapping
     public ResponseEntity<List<MedicalEquipment>> findAll() {
         try {
             List<MedicalEquipment> medicalEquipments = medicalEquipmentRepository.findAll();
@@ -82,7 +82,7 @@ public class MedicalEquipmentController {
     }
 
 
-    @DeleteMapping("/medical_equipments/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<MedicalEquipment> deleteById(@PathVariable(name = "id") Integer id) {
 
         try {

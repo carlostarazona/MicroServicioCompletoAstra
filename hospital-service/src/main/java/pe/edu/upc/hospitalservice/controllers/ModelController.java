@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 @Slf4j
 @RestController
-@RequestMapping("")
+@RequestMapping("/models")
 public class ModelController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class ModelController {
     @Autowired
     private ModelRepository modelRepository;
 
-    @GetMapping(path = "/models/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Model> fetchById(@PathVariable("id") Integer id){
         try{
             Optional<Model> optionalModel = modelService.findById(id);
@@ -46,7 +46,7 @@ public class ModelController {
 
     //BUSQUEDA POR MODEL NAME
 
-    @GetMapping(path = "/models/nombre/{modelName}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/nombre/{modelName}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Model> fetchById(@PathVariable("modelName") String modelName){
         try{
             Optional<Model> optionalModel = modelService.findByModelName(modelName);
@@ -61,7 +61,7 @@ public class ModelController {
         }
     }
     //TODAS LOS MODEL CREADOS
-    @GetMapping("/models")
+    @GetMapping
     public ResponseEntity<List<Model>> findAll() {
         try {
             List<Model> models = modelService.findAll();
@@ -95,7 +95,7 @@ public class ModelController {
 
     // ACTUALIZAR UNA BRAND
 
-    @PutMapping(value = "/models/{id}")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<?> actualizar(@PathVariable("id") Integer id, @RequestBody Model model) {
         log.info("Updating Invoice with id {}", id);
         model.setId(id);
@@ -120,7 +120,7 @@ public class ModelController {
 
 
     //BORRAR UNA BRAND
-    @DeleteMapping("/models/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Model> deleteById(@PathVariable(name = "id") Integer id) {
 
         try {

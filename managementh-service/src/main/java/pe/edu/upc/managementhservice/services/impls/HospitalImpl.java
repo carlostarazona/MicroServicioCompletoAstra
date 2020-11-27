@@ -2,6 +2,7 @@ package pe.edu.upc.managementhservice.services.impls;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import pe.edu.upc.managementhservice.entities.Hospital;
 import pe.edu.upc.managementhservice.repositories.HospitalRepository;
 import pe.edu.upc.managementhservice.services.HospitalService;
@@ -9,6 +10,7 @@ import pe.edu.upc.managementhservice.services.HospitalService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class HospitalImpl implements HospitalService {
 
     @Autowired
