@@ -10,6 +10,6 @@ import pe.edu.upc.documentationservice.model.MedicalEquipment;
 
 @FeignClient(name = "hospital-service", fallback = MedicalEquipmentHystrixFallbackFactory.class)
 public interface MedicalEquipmentClient {
-    @GetMapping(value = "/medical_equipments/")
+    @GetMapping(value = "/medical_equipments/{id}")
     public ResponseEntity<MedicalEquipment> getMedicalEquipment(@PathVariable("id") Integer id);
 }
